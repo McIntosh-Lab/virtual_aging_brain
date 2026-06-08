@@ -212,11 +212,11 @@ if __name__ == '__main__':
                 FCD_OV_INTER, fc_stack_ov_inter, _      = analysis.compute_fcd_filt(bold_sig[transient:,:],mask_inter,win_len=int(win_FCD/2000),win_sp=int(win_FCD/2000))
                 print('FCD')
 
-                FCD_TRIU      = np.triu(FCD, k=1)
-                FCD_TRIU_OV   = np.triu(FCD, k=int(win_FCD/2000))
+                FCD_TRIU      = FCD[np.triu_indices_from(FCD, k=1)]
+                FCD_TRIU_OV   = FCD[np.triu_indices_from(FCD, k=int(win_FCD/2000))]
 
-                FCD_INTER_TRIU      = np.triu(fcd_inter, k=1)
-                FCD_INTER_TRIU_OV   = np.triu(fcd_inter, k=int(win_FCD/2000))
+                FCD_INTER_TRIU      = fcd_inter[np.triu_indices_from(fcd_inter, k=1)]
+                FCD_INTER_TRIU_OV   = fcd_inter[np.triu_indices_from(fcd_inter, k=int(win_FCD/2000))]
 
                 print('FCD_TRIU')
 
